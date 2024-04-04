@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-center">PierFolio</h1>
+  <h1 class="text-center fw-bold">PierFolio</h1>
 
   <AppMain/>
 
