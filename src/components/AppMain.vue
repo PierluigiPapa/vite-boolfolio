@@ -5,7 +5,9 @@ export default {
   name:'AppMain',
   data(){
     return{
-      arrayProjects: []
+      arrayProjects: [],
+      currentPage: '',
+      lastPage: '',
     }
   },
   methods: {
@@ -30,7 +32,7 @@ export default {
     }
   },
   mounted() {
-    this.getProjects()
+    this.getProjects(1)
     
   },
 }
@@ -38,16 +40,27 @@ export default {
 
 <template>
 
-  <main>
-    <h3>Cliccate qua per vedere i progetti:</h3>
-    
-    <ul>
-      <li v-for="(element, index) in arrayProjects" :key="index"><a href="#">{{element.title}}</a></li>
+  <main class="p-4">
+    <h3 class="text-center">Clicca qui per vedere i miei progetti:</h3>
+    <ul class="text-center py-2">
+      <li class="text-center" v-for="(element, index) in arrayProjects" :key="index"><a href="#">{{element.title}}</a></li>
     </ul>
+
+    <nav aria-label="Page navigation example" class="m-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" :class="{'disabled': currentPage === 1}"><button class="page-link" @click="getProjects(currentPage - 1)">PREV</button></li>
+        <li class="page-item" v-for="(element,index) in lastPage" :key="index"><button class="page-link" @click="getProjects(element)">{{ element }}</button></li>
+        <li class="page-item" :class="{'disabled': currentPage === lastPage}"><button class="page-link" @click="getProjects(currentPage + 1)">NEXT</button></li>
+      </ul>
+    </nav>
   </main>
 
 </template>
 
 <style scoped>
+ul li {
+  list-style: none;
+  text-align: left;
+}
 
 </style>

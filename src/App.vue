@@ -10,12 +10,12 @@ export default {
 </script>
 
 <template>
-  <h1>PierFolio</h1>
+  <h1 class="text-center">PierFolio</h1>
 
   <AppMain/>
 
 </template>
 
-<style>
+<style scoped>
 
 </style>
