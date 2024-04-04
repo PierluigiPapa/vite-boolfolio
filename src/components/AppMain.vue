@@ -49,9 +49,7 @@ export default {
 
   <main class="p-4">
     <h3 class="text-center fw-bold py-3">Clicca qui per vedere i miei progetti:</h3>
-    <!-- <ul class="py-2">
-      <li v-for="(element, index) in arrayProjects" :key="index"><a href="#">{{element.title}}</a></li>
-    </ul> -->
+  
     <ProjectCard class="my-3" v-for="(element, index) in arrayProjects" :key="element.id" :title="element.title" :content="element.content" :type="element.type.name" :technologies="element.technologies"/>
 
     <nav aria-label="Page navigation example">
