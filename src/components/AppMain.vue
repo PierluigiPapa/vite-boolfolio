@@ -9,13 +9,23 @@ export default {
     }
   },
   methods: {
-    getProjects(){
+    getProjects(projectApiPage){
 
-      axios.get('http://127.0.0.1:8000/api/test')
+      axios.get('http://127.0.0.1:8000/api/test',
+      {
+        params: {
+          page: projectApiPage
+        }
+      }
+      )
       .then(res => {
-        console.log(res.data.projects)
+        console.log(res.data.projects.data)
 
-        this.arrayProjects = res.data.projects
+        // this.arrayProjects = res.data.projects
+
+        this.arrayProjects = res.data.projects.data
+        this.currentPage = res.data.projects.current_page
+        this.lastPage = res.data.projects.last_page
       })
     }
   },
