@@ -5,7 +5,7 @@ export default {
   name:'AppMain',
   data(){
     return{
-
+      arrayProjects: []
     }
   },
   methods: {
@@ -13,11 +13,14 @@ export default {
 
       axios.get('http://127.0.0.1:8000/api/test')
       .then(res => {
-        console.log(res)
+        console.log(res.data.projects)
+
+        this.arrayProjects = res.data.projects
       })
     }
   },
   mounted() {
+    this.getProjects()
     
   },
 }
