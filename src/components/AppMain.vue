@@ -46,11 +46,11 @@ export default {
       <li class="text-center" v-for="(element, index) in arrayProjects" :key="index"><a href="#">{{element.title}}</a></li>
     </ul>
 
-    <nav aria-label="Page navigation example" class="m-4">
+    <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
-        <li class="page-item" :class="{'disabled': currentPage === 1}"><button class="page-link" @click="getProjects(currentPage - 1)">PREV</button></li>
-        <li class="page-item" v-for="(element,index) in lastPage" :key="index"><button class="page-link" @click="getProjects(element)">{{ element }}</button></li>
-        <li class="page-item" :class="{'disabled': currentPage === lastPage}"><button class="page-link" @click="getProjects(currentPage + 1)">NEXT</button></li>
+        <li class="page-item pe-2" :class="{'disabled': currentPage === 1}"><button class="page-link" @click="getProjects(currentPage - 1)">PREV</button></li>
+        <li class="page-item pe-2" v-for="(element,index) in lastPage" :key="index"><button class="page-link" @click="getProjects(element)">{{ element }}</button></li>
+        <li class="page-item pe-2" :class="{'disabled': currentPage === lastPage}"><button class="page-link" @click="getProjects(currentPage + 1)">NEXT</button></li>
       </ul>
     </nav>
   </main>
