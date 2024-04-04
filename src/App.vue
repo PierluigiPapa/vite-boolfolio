@@ -13,8 +13,9 @@ export default {
   <h1>PierFolio</h1>
 
   <AppMain/>
+
 </template>
 
-<style scoped>
+<style>
 
 </style>

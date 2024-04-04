@@ -27,12 +27,17 @@ export default {
 </script>
 
 <template>
-  <h3>Cliccate qua per vedere i progetti:</h3>
+
+  <main>
+    <h3>Cliccate qua per vedere i progetti:</h3>
+    
+    <ul>
+      <li v-for="(element, index) in arrayProjects" :key="index"><a href="#">{{element.title}}</a></li>
+    </ul>
+  </main>
 
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
+
 </style>
