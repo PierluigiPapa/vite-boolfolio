@@ -52,7 +52,7 @@
             <div>
                 <ul>
                     <li v-for="(element, index) in arrayProjects" :key="element.id">
-                        <a href="#">{{element.title}}</a>
+                      <router-link :to="{name: 'single-project', params: {slug: element.slug}}">{{element.title}}</router-link>
                     </li>
                 </ul>
 
