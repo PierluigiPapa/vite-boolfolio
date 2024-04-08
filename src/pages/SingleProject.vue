@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <h1 class="text-center">Progetto singolo</h1>
+    <h1 class="text-center fw-bold mt-5">Progetto singolo</h1>
 </template>
 
 <style>
