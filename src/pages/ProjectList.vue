@@ -47,7 +47,7 @@ export default {
 <template>
 
 <main class="container">
-  <h3 class="text-center fw-bold py-3">Clicca qui per vedere i miei progetti:</h3>
+  <h1 class="text-center fw-bold py-3">Clicca qui per vedere i miei progetti:</h1>
   
   <div class="d-flex justify-content-center mt-3">
     <div>
@@ -61,11 +61,6 @@ export default {
       :technologies="element.technologies"
       :image= "element.cover"/>
 
-      <!-- <ul>
-        <li v-for="(element, index) in arrayProjects" :key="element.id">
-          <router-link :to="{name: 'single-project', params: {slug: element.slug}}">{{element.title}}</router-link>
-        </li>
-      </ul> -->
       
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
