@@ -1,18 +1,22 @@
 <script>
-import AppMain from './components/AppMain.vue'
+// import AppMain from './components/AppMain.vue'
+
+import AppHeader from './components/AppHeader.vue'
 
 export default {
   components: {
-    AppMain
+    AppHeader
   }
 }
 
 </script>
 
 <template>
-  <h1 class="text-center fw-bold">PierFolio</h1>
 
-  <AppMain/>
+  <AppHeader/>
+  
+  <router-link></router-link>
+
 
 </template>
 
