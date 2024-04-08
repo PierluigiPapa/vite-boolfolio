@@ -2,6 +2,8 @@
 
 import axios from 'axios';
 import AppProject from '../components/AppProject.vue'
+import {store} from '../store.js'
+
 
 export default {
   
@@ -14,12 +16,13 @@ export default {
       arrayProjects: [],
       currentPage: '',
       lastPage: '',
+      store
       }
     },
     
     methods: {
       getProjects(projectApiPage){
-        axios.get('http://127.0.0.1:8000/api/test',
+        axios.get(`${store.apiBaseUrl}/api/test`,
         {
           params: {
             page: projectApiPage
