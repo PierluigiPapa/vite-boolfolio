@@ -55,7 +55,8 @@ export default {
       :slug="element.slug"
       :content="element.content"
       :type="element.type ? element.type.name : ''"
-      :technologies="element.technologies"/>
+      :technologies="element.technologies"
+      :image= "element.cover"/>
 
       <!-- <ul>
         <li v-for="(element, index) in arrayProjects" :key="element.id">
