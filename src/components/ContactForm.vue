@@ -13,7 +13,9 @@ export default {
             store,
             name:'',
             email:'',
-            message:''
+            message:'',
+            errors: {},
+            success: false
         }
     },
     methods: {
@@ -24,19 +26,17 @@ export default {
                 message: this.message
             }
 
-            this.errors = {};
+            this.errors={}
 
             axios.post(`${this.store.apiBaseUrl}/api/contacts`, data)
-            .then(res => {
-
+            .then( res => {
                 this.success = res.data.success
-
                 if(!this.success) {
                     this.errors = res.data.errors
                 } else {
-                    this.name = ''
-                    this.email = ''
-                    this.message= ''
+                    this.name='',
+                    this.email='',
+                    this.message=''
                 }
             })
         }
@@ -59,18 +59,18 @@ export default {
     <div>
         <form @submit.prevent="sendForm()">
             <div class="mb-3">
-                <input type="text" class="form-control" :class="{'is-invalid':errors.name}" name="name" placeholder="Inserisci il tuo nome e cognome" v-model="name">
-                <p v-for="(error, index) in error.name" :key='`message-errors-${index}`' class="invalid-feedback"> {{ error }}</p>
+                <input type="text" class="form-control" :class="{'is-invalid': errors?.name}" name="name" placeholder="Inserisci il tuo nome e cognome" v-model="name">
+                <p v-for="(error, index) in errors?.name" :key='`message-errors-${index}`' class="invalid-feedback"> {{ error }}</p>
             </div>
 
             <div class="mb-3">
-                <input type="email" class="form-control" :class="{'is-invalid':errors.email}" name="email" placeholder="Inserisci la tua e-mail" v-model="email">
-                <p v-for="(error, index) in error.email" :key='`message-errors-${index}`' class="invalid-feedback"> {{ error }}</p>
+                <input type="email" class="form-control" :class="{'is-invalid':errors?.email}" name="email" placeholder="Inserisci la tua e-mail" v-model="email">
+                <p v-for="(error, index) in errors?.email" :key='`message-errors-${index}`' class="invalid-feedback"> {{ error }}</p>
             </div>
 
             <div class="mb-3">
-                <textarea class="form-control" :enter-class="{'is-invalid':errors.message}" name="message" id="message" cols="30" rows="10" v-model="message"></textarea>
-                <p v-for="(error, index) in error.message" :key='`message-errors-${index}`' class="invalid-feedback"> {{ error }}</p>
+                <textarea class="form-control" :enter-class="{'is-invalid':errors?.message}" name="message" id="message" cols="30" rows="10" v-model="message"></textarea>
+                <p v-for="(error, index) in errors?.message" :key='`message-errors-${index}`' class="invalid-feedback"> {{ error }}</p>
             </div>
 
             
